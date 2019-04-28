@@ -1,7 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import NewsList from './news-list'
+import NewsContainer from './NewsContainer';
+
 const posts = [{
   imgSrc: 'https://www.realestate.com.au/blog/images/600x450-fit,progressive/2019/04/12110413/Cross-St-exterior.jpg',
   title: 'Australia’s most in-demand streets',
@@ -25,7 +26,7 @@ function App() {
     <div className="App">
       <header className="App-header">
       </header>
-      <NewsList posts={posts} />
+      <NewsContainer />
     </div>
   );
 }

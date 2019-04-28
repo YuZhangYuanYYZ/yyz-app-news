@@ -5,7 +5,7 @@ import Newscard from '../news-card'
 function View(props) {
     const posts = props.posts;
     const listNews = posts.map(post => (
-        <li key={post.autohor} >
+        <li key={post.id} >
             <Newscard element={post} />
         </li >
     )
