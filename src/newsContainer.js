@@ -1,5 +1,6 @@
 import React from 'react';
 import NewsList from './news-list'
+import { API_URL } from './config/constants';
 
 class NewsContainer extends React.Component {
     constructor(porps) {
@@ -8,7 +9,7 @@ class NewsContainer extends React.Component {
     }
 
     componentDidMount() {
-        const promise = fetch('http://localhost:3004/posts');
+        const promise = fetch(`${API_URL}/posts`);
         promise
             .then(response => {
                 const dataPromise = response.json();
