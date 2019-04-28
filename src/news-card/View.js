@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import './style.scss'
 import React from 'react';
 function Image(props) {
@@ -9,24 +8,16 @@ function Image(props) {
     );
 }
 function View(props) {
-    const post = props.post;
-    const listNews = post.map(element => (
-        <li key={element.autohor} >
-            <div className="news">
-                <Image src={element.imgSrc}> </Image>
-                <div className="newsDemonstrate">
-                    <h1>{element.title}</h1>
-                    <div className="author">by {element.author}</div>
-                    <p>{element.description}</p>
-                </div>
-            </div>
-        </li >
-    )
-    );
+    const element = props.element;
     return (
-        <ul>
-            {listNews}
-        </ul>
+        <div className="news">
+            <Image src={element.imgSrc}> </Image>
+            <div className="newsDemonstrate">
+                <h1>{element.title}</h1>
+                <div className="author">by {element.author}</div>
+                <p>{element.description}</p>
+            </div>
+        </div>
     );
 }
 

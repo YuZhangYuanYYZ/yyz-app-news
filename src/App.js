@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import NewsCard from './news-card'
-const post = [{
+import NewsList from './news-list'
+const posts = [{
   imgSrc: 'https://www.realestate.com.au/blog/images/600x450-fit,progressive/2019/04/12110413/Cross-St-exterior.jpg',
   title: 'Australia’s most in-demand streets',
   description: 'All roads lead to Melbourne, with the Victorian capital home to eight of the 10 most sought-after streets for buyers in Australia.',
@@ -21,12 +21,11 @@ const post = [{
   author: 'Cedar Woods',
 }]
 function App() {
-
   return (
     <div className="App">
       <header className="App-header">
       </header>
-      <NewsCard post={post} />
+      <NewsList posts={posts} />
     </div>
   );
 }
