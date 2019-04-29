@@ -6,6 +6,7 @@ class NewsContainer extends React.Component {
     constructor(porps) {
         super(porps);
         this.state = { data: [] }
+        this.deletePost = this.deletePost.bind(this);
     }
 
     componentDidMount() {
@@ -22,10 +23,30 @@ class NewsContainer extends React.Component {
             });
     }
 
+    deletePost(id) {
+        const deleteOption = {
+            method: 'DELETE'
+        }
+        const promise = fetch(`${API_URL}/posts/${id}`, deleteOption);
+        promise
+            .then(res => res.json())
+            .then(result => {
+                this.setState((state) => {
+                    return {
+                        data: state.data.filter((post) => {
+                            return post.id !== id;
+                        })
+                    }
+                })
+            }, (error) => {
+                console.log(error);
+            });
+    }
+
     render() {
         return (
             <div>
-                <NewsList posts={this.state.data} />
+                <NewsList posts={this.state.data} deletePost={this.deletePost} />
             </div >
         )
     };
