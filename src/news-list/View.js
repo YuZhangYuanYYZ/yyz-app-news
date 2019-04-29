@@ -6,7 +6,7 @@ function View(props) {
     const posts = props.posts;
     const listNews = posts.map(post => (
         <li key={post.id} >
-            <Newscard element={post} />
+            <Newscard element={post} deletePost={props.deletePost} />
         </li >
     )
     );

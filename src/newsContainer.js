@@ -6,6 +6,7 @@ class NewsContainer extends React.Component {
     constructor(porps) {
         super(porps);
         this.state = { data: [] }
+        this.deletePost = this.deletePost.bind(this);
     }
 
     componentDidMount() {
@@ -22,10 +23,20 @@ class NewsContainer extends React.Component {
             });
     }
 
+    deletePost(id) {
+        console.log("clicked")
+        this.setState({
+            date: this.state.data.filter((post) => {
+                return post.id !== id;
+            })
+        })
+        console.log("has been excuted?")
+    }
+
     render() {
         return (
             <div>
-                <NewsList posts={this.state.data} />
+                <NewsList posts={this.state.data} deletePost={this.deletePost} />
             </div >
         )
     };
