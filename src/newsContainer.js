@@ -32,10 +32,11 @@ class NewsContainer extends React.Component {
             .then(res => res.json())
             .then(result => {
                 this.setState((state) => {
-                    const newdata = state.data.filter((post) => {
-                        return post.id !== id;
-                    })
-                    return { data: newdata };
+                    return {
+                        data: state.data.filter((post) => {
+                            return post.id !== id;
+                        })
+                    }
                 })
             }, (error) => {
                 console.log(error);
