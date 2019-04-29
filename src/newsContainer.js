@@ -24,13 +24,22 @@ class NewsContainer extends React.Component {
     }
 
     deletePost(id) {
-        console.log("clicked")
-        this.setState({
-            date: this.state.data.filter((post) => {
-                return post.id !== id;
-            })
-        })
-        console.log("has been excuted?")
+        const deleteOption = {
+            method: 'DELETE'
+        }
+        const promise = fetch(`${API_URL}/posts/${id}`, deleteOption);
+        promise
+            .then(res => res.json())
+            .then(result => {
+                this.setState((state) => {
+                    const newdata = state.data.filter((post) => {
+                        return post.id !== id;
+                    })
+                    return { data: newdata };
+                })
+            }, (error) => {
+                console.log(error);
+            });
     }
 
     render() {

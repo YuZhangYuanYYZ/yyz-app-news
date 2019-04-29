@@ -2,11 +2,10 @@ import './style.scss'
 import React from 'react';
 import Newscard from '../news-card'
 
-function View(props) {
-    const posts = props.posts;
+function View({ posts, deletePost }) {
     const listNews = posts.map(post => (
         <li key={post.id} >
-            <Newscard element={post} deletePost={props.deletePost} />
+            <Newscard element={post} deletePost={deletePost} />
         </li >
     )
     );
